@@ -1,0 +1,47 @@
+查询1班除外其他班级学生的平均年龄，最大年龄，最小年龄
+select calss,avg(age),max(age),min(age) from students where class!='1班‘
+group by class
+
+
+select class,avg(age),max(age),min(age) from students group by class having
+class!='1班’；
+
+having 和where的区别，having一定用于group by 后面
+
+对比where与having
+where是对from后面指定的表进行数据筛选，属于对原始数据的筛选
+having是对group by的结果进行筛选
+
+
+
+等值连接
+
+第一种方式：（相关联等值连接)
+select * from 表一，表二 where 表1.字段=表2.字段  会产生临时表，占内存
+例子一，查询学生信息及学生的成绩
+select * from students ,scores where students.studentno=scores.studentno
+
+第二种方式：内连接
+不会产生笛卡尔积，不会产生临时表，性能高
+select * from students inner join scores on students.studentno=scores.studentno
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
